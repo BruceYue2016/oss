@@ -1,0 +1,20 @@
+eureka:
+  instance:
+        hostname: peer1.jinghanit.com
+        registerPort: 9999
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.registerPort}/eureka/
+
+server:
+  port: 8001
+
+spring:
+  application:
+    name: jinghan-user
+
+## Feign是自带断路器的，在D版本的Spring Cloud中，它没有默认打开。需要在配置文件中配置打开它
+feign:
+  hystrix:
+    enabled: true
+

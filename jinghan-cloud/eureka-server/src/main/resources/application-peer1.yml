@@ -1,0 +1,11 @@
+server:
+  port: 9999
+
+spring:
+  profiles: peer1
+eureka:
+  instance:
+    hostname: peer1.jinghanit.com
+  client:
+    serviceUrl:
+      defaultZone: http://peer2.jinghanit.com:9998/eureka/

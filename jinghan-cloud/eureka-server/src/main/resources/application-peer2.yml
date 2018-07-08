@@ -1,0 +1,22 @@
+server:
+  port: 9998
+
+spring:
+  profiles: peer2
+eureka:
+  instance:
+    hostname: peer2.jinghanit.com
+  client:
+    serviceUrl:
+      defaultZone: http://peer1.jinghanit.com:9999/eureka/
+
+##按照官方文档的指示，需要改变etc/hosts，linux系统通过vim /etc/hosts ,加上：
+## 127.0.0.1 peer1.jinghanit.com
+## 127.0.0.1 peer2.jinghanit.com
+## windows电脑，在c:/windows/System32/drivers/etc/hosts 修改
+
+## cd D:\GitRepository\project\weserve-demo\eureka-server
+## mvn package 启动服务
+## cd target
+## java -jar eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer2
+## IDEA启动 --spring.profiles.active=peer1
